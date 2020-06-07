@@ -21,9 +21,7 @@ end
 
 puts "If you want to finish game, type the word \"end\""
 
-sleep 2
-
-puts "If you want to know the answer, type the letter  \"a\""
+sleep 1
 
 printer = TriadPrinter.new
 
@@ -40,6 +38,7 @@ loop do
   if next_move == "exit"
     abort
   else
+    puts "Answer:"
     puts printer.print_triad(answer)
   end
 end

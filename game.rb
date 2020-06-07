@@ -1,4 +1,5 @@
 require_relative "exercise_generator"
+require_relative "triad_printer"
 
 puts "Hi! Wanna play a game?.."
 
@@ -24,6 +25,7 @@ sleep 2
 
 puts "If you want to know the answer, type the letter  \"a\""
 
+printer = TriadPrinter.new
 
 loop do
   new_game = ExerciseGenerator.new
@@ -35,10 +37,9 @@ loop do
   puts "Play me a #{note} major in #{position} on strings #{string}!"
   next_move = STDIN.gets.chomp
 
-  if next_move == "end"
-    break
-  elsif next_move == "a"
-    puts answer
+  if next_move == "exit"
+    abort
+  else
+    puts printer.print_triad(answer)
   end
-
 end

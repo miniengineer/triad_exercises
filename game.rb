@@ -1,7 +1,9 @@
-require_relative "exercise_generator"
-require_relative "triad_printer"
+# frozen_string_literal: true
 
-puts "Hi! Wanna play a game?.."
+require_relative 'exercise_generator'
+require_relative 'triad_printer'
+
+puts 'Hi! Wanna play a game?..'
 
 sleep 2
 
@@ -16,10 +18,10 @@ if ready_or_not == 1
   puts "Great! Let's start"
   sleep 2
 else
-  abort "Well, maybe some other time."
+  abort 'Well, maybe some other time.'
 end
 
-puts "If you want to finish game, type the word \"end\""
+puts 'If you want to finish game, type the word "end"'
 
 sleep 1
 
@@ -35,10 +37,10 @@ loop do
   puts "Play me a #{note} major in #{position} on strings #{string}!"
   next_move = STDIN.gets.chomp
 
-  if next_move == "exit"
+  if next_move == 'exit'
     abort
   else
-    puts "Answer:"
+    puts 'Answer:'
     puts printer.result_printer(answer, note)
   end
 end

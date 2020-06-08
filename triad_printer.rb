@@ -57,7 +57,9 @@ class TriadPrinter
 
   def fret_printer(coordinates, note)
     fret = @strings[coordinates[:r][0]].index(note)
-    fret += 12 if fret - coordinates[:t][1] <= 2 || fret - coordinates[:f][1] <= 2
+    if fret < coordinates[:r][1] - [coordinates[:t][1], coordinates[:f][1]].min
+      fret += 12
+    end
     fret
   end
 

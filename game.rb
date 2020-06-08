@@ -39,6 +39,6 @@ loop do
     abort
   else
     puts "Answer:"
-    puts printer.print_triad(answer)
+    puts printer.result_printer(answer, note)
   end
 end

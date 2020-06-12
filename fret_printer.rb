@@ -20,4 +20,3 @@ class FretPrinter
     fret + '----------------'
   end
 end
-

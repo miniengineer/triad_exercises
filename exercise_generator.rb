@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ExerciseGenerator
   def initialize
     @notes = %w[A B C D E F G]
@@ -29,5 +30,4 @@ class ExerciseGenerator
     index2 = @positions.index(position)
     @answers[index1][index2]
   end
-
 end

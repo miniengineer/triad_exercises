@@ -21,6 +21,10 @@ else
   abort 'Well, maybe some other time.'
 end
 
+puts 'Click return/enter on you keyboard to see the answer'
+
+sleep 1
+
 puts 'If you want to finish game, type the word "end"'
 
 sleep 1

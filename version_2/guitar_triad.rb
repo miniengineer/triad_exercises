@@ -26,10 +26,28 @@ class GuitarTriad
   end
 
   def third_string
-    # generate last string
+    case triad.position
+    when Triad::ROOT_POSITION
+      top_string + 1
+    when Triad::FIRST_INVERSION
+      top_string
+    when Triad::SECOND_INVERSION
+      top_string + 2
+    else
+      raise "Unknown triad position #{triad.position}"
+    end
   end
 
   def fifth_string
-
+    case triad.position
+    when Triad::ROOT_POSITION
+      top_string + 2
+    when Triad::FIRST_INVERSION
+      top_string + 1
+    when Triad::SECOND_INVERSION
+      top_string
+    else
+      raise "Unknown triad position #{triad.position}"
+    end
   end
 end

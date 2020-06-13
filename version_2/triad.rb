@@ -9,6 +9,12 @@ class Triad
   attr_reader :position, :root
 
   def initialize(position, root)
+    unless ['root', 'first inversion', 'second inversion'].include? position
+      raise 'Position must be either "root", "first inversion" or "second inversion"'
+    end
+
+    raise 'Root must be a valid note' unless Note::CHROMATIC_SCALE.include? root
+
     @position = position
     @root = root
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'note'
+require_relative 'scale'
 
 class Triad
   ROOT_POSITION = 'root position'
@@ -13,17 +13,19 @@ class Triad
       raise 'Position must be either "root", "first inversion" or "second inversion"'
     end
 
-    raise 'Root must be a valid note' unless Note::CHROMATIC_SCALE.include? root
+    raise 'Root must be a valid note' unless Scale::CHROMATIC.include? root
 
     @position = position
     @root = root
   end
 
   def third
-    Note::CHROMATIC_SCALE[Note::CHROMATIC_SCALE.index root + 2]
+    third_index = Scale::CHROMATIC.index root + 2
+    third_index -= Scale::CHROMATIC.length if third_index >= Scale::CHROMATIC.length
+    Scale::CHROMATIC[third_index]
   end
 
   def fifth
-    Note::CHROMATIC_SCALE[Note::CHROMATIC_SCALE.index root + 4]
+    Scale::CHROMATIC[Scale::CHROMATIC.index root + 4]
   end
 end

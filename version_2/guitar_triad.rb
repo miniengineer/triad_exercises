@@ -50,4 +50,10 @@ class GuitarTriad
       raise "Unknown triad position #{triad.position}"
     end
   end
+
+  def play(fretboard)
+    fretboard.play_note(root_string, triad.root)
+    fretboard.play_note(third_string, triad.third)
+    fretboard.play_note(fifth_string, triad.fifth)
+  end
 end

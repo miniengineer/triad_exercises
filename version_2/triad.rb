@@ -20,14 +20,10 @@ class Triad
   end
 
   def third
-    third_index = Scale::CHROMATIC.index root + 2
-    third_index -= Scale::CHROMATIC.length if third_index >= Scale::CHROMATIC.length
-    Scale::CHROMATIC[third_index]
+    Scale.chromatic(root)[2]
   end
 
   def fifth
-    fifth_index = Scale::CHROMATIC.index root + 4
-    fifth_index -= Scale::CHROMATIC.length if fifth_index >= Scale::CHROMATIC.length
-    Scale::CHROMATIC[fifth_index]
+    Scale.chromatic(root)[4]
   end
 end

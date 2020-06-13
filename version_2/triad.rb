@@ -26,6 +26,8 @@ class Triad
   end
 
   def fifth
-    Scale::CHROMATIC[Scale::CHROMATIC.index root + 4]
+    fifth_index = Scale::CHROMATIC.index root + 4
+    fifth_index -= Scale::CHROMATIC.length if fifth_index >= Scale::CHROMATIC.length
+    Scale::CHROMATIC[fifth_index]
   end
 end

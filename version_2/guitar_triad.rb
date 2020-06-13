@@ -6,7 +6,7 @@ class GuitarTriad
   def initialize(triad, top_string)
     raise 'Triad must be an instance of Triad' unless triad instance_of? Triad
 
-    raise 'Top string must be one of 1, 2, 3, 4' unless (1..4).include? top_string.to_i
+    raise 'Top string must be one of 0, 1, 2, 3' unless (0..3).include? top_string.to_i
 
     @triad = triad
     @top_string = top_string

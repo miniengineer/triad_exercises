@@ -1,4 +1,3 @@
-
 class Printer
   attr_reader :result, :fretboard
 
@@ -9,13 +8,14 @@ class Printer
 
   def print_fret
     fret = []
-    fretboard.highest_played_fret.times do
+    (fretboard.highest_played_fret - fretboard.lowest_played_fret + 1).times do
       draw(fret)
     end
     fret << '----------------'
   end
 
   def convert_y_coordinate(y_coordinate)
+    y_coordinate = y_coordinate - fretboard.lowest_played_fret + 1
     case y_coordinate
     when 1
       2
@@ -56,3 +56,57 @@ class Printer
     end
   end
 end
+
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  C  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# |  A  |  |  |  |
+# |  |  |  |  |  |
+# ----------------
+# |  |  |  |  |  |
+# F  |  |  |  |  |
+# |  |  |  |  |  |
+# ----------------

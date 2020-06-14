@@ -6,6 +6,7 @@ class Triad
   ROOT_POSITION = 'root position'
   FIRST_INVERSION = 'first inversion'
   SECOND_INVERSION = 'second inversion'
+
   attr_reader :position, :root
 
   def initialize(position, root)

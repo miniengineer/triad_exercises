@@ -7,9 +7,12 @@ class Triad
   FIRST_INVERSION = 'first inversion'
   SECOND_INVERSION = 'second inversion'
 
-  attr_reader :position, :root
+  MAJOR = 'major'
+  MINOR = 'minor'
 
-  def initialize(position, root)
+  attr_reader :position, :root, :type
+
+  def initialize(position, root, type = MAJOR)
     unless ['root position', 'first inversion', 'second inversion'].include? position
       raise 'Position must be either "root position", "first inversion" or "second inversion"'
     end
@@ -18,10 +21,20 @@ class Triad
 
     @position = position
     @root = root
+    @type = type
   end
 
   def third
-    Scale.chromatic(root)[4]
+    case type
+    when MAJOR
+      idx = 4
+    when MINOR
+      idx = 3
+    else
+      raise "Unknown triad: #{type}"
+    end
+
+    Scale.chromatic(root)[idx]
   end
 
   def fifth

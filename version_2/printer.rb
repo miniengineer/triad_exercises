@@ -39,6 +39,7 @@ class Printer
 
       y_c = convert_y_coordinate(fret_num)
       x_c = convert_x_coordinate(string_num)
+      fret_num -= 12 if fret_num > 11
       note = fretboard.strings[string_num][fret_num]
       result[y_c][x_c] = note
       result[y_c].slice!(x_c + 2) if note.length > 1

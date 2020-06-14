@@ -44,7 +44,15 @@ class Printer
       result[y_c][x_c] = note
       result[y_c].slice!(x_c + 2) if note.length > 1
     end
+
     result.each(&:reverse!)
+
+    fretboard.fret_labels.each do |fret_num, label|
+      y_c = convert_y_coordinate(fret_num)
+      result[y_c] = "#{result[y_c]}  #{label}"
+    end
+
+    result
   end
 
   private

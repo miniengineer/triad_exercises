@@ -54,10 +54,14 @@ class GuitarTriad
     fretboard.play_note(root_string, triad.root)
     fretboard.play_note(third_string, triad.third)
     fretboard.play_note(fifth_string, triad.fifth)
+
     if fretboard.highest_played_fret > 6
       fretboard.played_frets[root_string] += 12 if fretboard.played_frets[root_string] < 6
       fretboard.played_frets[third_string] += 12 if fretboard.played_frets[third_string] < 6
       fretboard.played_frets[fifth_string] += 12 if fretboard.played_frets[fifth_string] < 6
     end
+
+    root_fret = fretboard.played_frets[root_string]
+    fretboard.set_fret_label root_fret, "#{root_fret} fret"
   end
 end

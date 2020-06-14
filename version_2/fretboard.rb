@@ -1,13 +1,26 @@
 require_relative 'scale'
 
 class Fretboard
-  attr_reader :tuning, :strings, :played_frets
+  attr_reader :tuning, :strings, :played_frets, :fret_labels
 
   def initialize
     # highest string to lowest string
     @tuning = %w[E B G D A E]
     @strings = tuning.map { |note| Scale.chromatic(note) }
     @played_frets = Array.new(tuning.length, nil)
+    @fret_labels = {}
+  end
+
+  def set_fret_label(fret, label)
+    fret_labels[fret] = label
+  end
+
+  def fret_label(fret)
+    fret_labels[fret]
+  end
+
+  def clear_fret_label(fret)
+    fret_labels.delete fret
   end
 
   def play_note(string_num, note)

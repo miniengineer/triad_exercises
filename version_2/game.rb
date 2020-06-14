@@ -12,8 +12,8 @@ require_relative 'guitar_triad'
 require_relative 'fretboard'
 require_relative 'printer'
 
-t = Triad.new('root position', 'F')
-gt = GuitarTriad.new(t, 5)
+t = Triad.new(Triad::ROOT_POSITION, 'B')
+gt = GuitarTriad.new(t, 2)
 f = Fretboard.new
 
 gt.play(f)

@@ -39,4 +39,8 @@ class Fretboard
   def highest_played_fret
     played_frets.compact.max
   end
+
+  def lowest_played_fret
+    played_frets.compact.min
+  end
 end

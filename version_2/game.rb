@@ -12,12 +12,28 @@ require_relative 'guitar_triad'
 require_relative 'fretboard'
 require_relative 'printer'
 
-t = Triad.new(Triad::SECOND_INVERSION, 'F', Triad::MINOR)
-gt = GuitarTriad.new(t, 2)
-f = Fretboard.new
+puts "Game start"
 
-gt.play(f)
+sleep 2
 
-p = Printer.new(f)
+while true
+  triad_position = [Triad::SECOND_INVERSION, Triad::FIRST_INVERSION, Triad::ROOT_POSITION].sample
+  note = ('A'..'G').to_a.sample
+  minor_or_major = [Triad::MINOR, Triad::MAJOR].sample
+  string = (2..5).to_a.sample
+  puts "Play me #{note} #{minor_or_major} triad on string #{string + 1} in #{triad_position} position"
 
-puts p.print_notes
+  sleep 2
+  t = Triad.new(triad_position, note, minor_or_major)
+  gt = GuitarTriad.new(t, string)
+  f = Fretboard.new
+
+  gt.play(f)
+
+  p = Printer.new(f)
+
+  puts 'To see the answer press any key'
+  STDIN.gets
+
+  puts p.print_notes
+end
